@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PizzaChecker</string>
+    <string name="checkButton">Sprawdź</string>
+    <string name="etSize">Rozmiar pizzy [cm]</string>
+    <string name="etPrice">Cena pizzy [zł]</string>
+    <string name="tvWynikCena">Ilość pizzy za 1zł</string>
+</resources>
