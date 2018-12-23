@@ -4,4 +4,10 @@
     <string name="etSize">Rozmiar pizzy [cm]</string>
     <string name="etPrice">Cena pizzy [zł]</string>
     <string name="tvWynikCena">Ilość pizzy za 1zł</string>
+
+    <string-array name="menuTitles">
+        <item>Ekran główny</item>
+        <item>TicTacToe</item>
+    </string-array>
+    
 </resources>
