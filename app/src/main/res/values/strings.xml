@@ -6,8 +6,8 @@
     <string name="tvWynikCena">Ilość pizzy za 1zł</string>
 
     <string-array name="menuTitles">
-        <item>Ekran główny</item>
-        <item>TicTacToe</item>
+        <item>Sprawdź pizze</item>
+        <item>Poczekadełko</item>
     </string-array>
-    
+
 </resources>
