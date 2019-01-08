@@ -1,9 +1,7 @@
 package bartekhejke.com.pizzachecker;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,10 +17,6 @@ import bartekhejke.com.pizzachecker.TicTacToeFragment.TicTacToeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnCheck;
-    TextView tvWynikCena;
-    EditText etPrice, etSize;
-    private String resultcm;
     private String[] menuTitles;
     private ListView menuList;
     private DrawerLayout drawerLayout;
@@ -34,11 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        tvWynikCena = (TextView) findViewById(R.id.tvWynikCena);
-        etPrice = (EditText) findViewById(R.id.etPrice);
-        etSize = (EditText) findViewById(R.id.etSize);
-        btnCheck = (Button) findViewById(R.id.btnCheck);
         menuList = (ListView) findViewById(R.id.menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -47,20 +36,10 @@ public class MainActivity extends AppCompatActivity {
         menuList.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1, menuTitles));
         menuList.setOnItemClickListener(new DrawerItemClickListener());
 
-       /* btnCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Results pricecm = new Results(
-                        Double.parseDouble(etPrice.getText().toString()),
-                        Integer.parseInt(etSize.getText().toString()));
-                resultcm = pricecm.toString();
-                tvWynikCena.setText(resultcm);
-            }
-        });
-        if( savedInstanceState != null){
-            resultcm = savedInstanceState.getString("pricecm");
-            tvWynikCena.setText(resultcm);
-        }*/
+        if (savedInstanceState == null){
+            selectItem(0);
+        }
+
 
     }
 
@@ -80,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
             default:
                 fragment = new TopFragment();
         }
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.container,fragment);
         ft.addToBackStack(null);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -93,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        //outState.putString("pricecm",resultcm);
     }
 
 }

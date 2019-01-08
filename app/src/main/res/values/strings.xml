@@ -4,6 +4,10 @@
     <string name="etSize">Rozmiar pizzy [cm]</string>
     <string name="etPrice">Cena pizzy [zł]</string>
     <string name="tvWynikCena">Ilość pizzy za 1zł</string>
+    <string name="restartGame">Restart</string>
+    <string name="won">Wygrałeś</string>
+    <string name="lost">Przegrałeś</string>
+    <string name="draw">Remis</string>
 
     <string-array name="menuTitles">
         <item>Sprawdź pizze</item>
