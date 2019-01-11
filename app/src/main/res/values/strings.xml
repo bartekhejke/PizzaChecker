@@ -12,6 +12,7 @@
     <string-array name="menuTitles">
         <item>Sprawdź pizze</item>
         <item>Poczekadełko</item>
+        <item>Pogoda</item>
     </string-array>
 
 </resources>

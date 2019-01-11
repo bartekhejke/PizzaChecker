@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import bartekhejke.com.pizzachecker.TicTacToeFragment.TicTacToeFragment;
+import bartekhejke.com.pizzachecker.WeatherFragment.WheatherFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         switch (position){
             case 1:
                 fragment = new TicTacToeFragment();
+                break;
+            case 2:
+                fragment = new WheatherFragment();
                 break;
             default:
                 fragment = new TopFragment();
