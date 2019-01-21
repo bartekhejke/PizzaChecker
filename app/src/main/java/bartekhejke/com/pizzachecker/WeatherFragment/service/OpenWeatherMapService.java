@@ -1,5 +1,6 @@
 package bartekhejke.com.pizzachecker.WeatherFragment.service;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
 import org.json.JSONException;
@@ -11,6 +12,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import bartekhejke.com.pizzachecker.WeatherFragment.WheatherFragment;
 import bartekhejke.com.pizzachecker.WeatherFragment.data.Channel;
 
 /**
@@ -22,6 +24,17 @@ public class OpenWeatherMapService {
     private String location;
     private Exception error;
     private static final String API_KEYS = "49617c567ed7c4a91149e6a52eb1b58f";
+    private double latitude;
+    private double longitude;
+    WheatherFragment wheatherFragment;
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
     public OpenWeatherMapService(WeatherServiceCallback callback) {
         this.callback = callback;
@@ -31,14 +44,16 @@ public class OpenWeatherMapService {
         return location;
     }
 
-    public void refreshWeather(String l){
-        this.location = l;
+    @SuppressLint("StaticFieldLeak")
+    public void refreshWeather(){
+        wheatherFragment = new WheatherFragment();
         new AsyncTask<String, Void, String>() {
             @Override
             protected String doInBackground(String... params) {
 
+                location = "lat="+latitude+"&lon="+longitude;
 
-                String endpoint = String.format("http://api.openweathermap.org/data/2.5/weather?q=Brodnica,pl&appid=49617c567ed7c4a91149e6a52eb1b58f");
+                String endpoint = String.format("http://api.openweathermap.org/data/2.5/weather?%s&appid=%s", location, API_KEYS);
 
                 try {
                     URL url = new URL(endpoint);
@@ -53,7 +68,6 @@ public class OpenWeatherMapService {
                     while ((line = reader.readLine()) != null){
                         result.append(line);
                     }
-                    System.out.println("W try od czytania linii&&&&&&&&&&");
                     return result.toString();
 
                 } catch (Exception e) {
@@ -71,7 +85,6 @@ public class OpenWeatherMapService {
                 }
 
                 try {
-                    System.out.println("POczątek try w postExecute");
                     JSONObject data = new JSONObject(s);
 
                     int cod = data.optInt("cod");
@@ -80,10 +93,10 @@ public class OpenWeatherMapService {
                         callback.serviceFailure(new LocationWeatherException("No weather information found for "+location));
                         return;
                     }
+
                     Channel channel = new Channel();
                     channel.populate(data);
                     callback.serviceSuccess(channel);
-                    System.out.println("callback success");
                 } catch (JSONException e) {
                     callback.serviceFailure(e);
                 }

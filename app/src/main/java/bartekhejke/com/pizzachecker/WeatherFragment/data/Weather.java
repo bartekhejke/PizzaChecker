@@ -9,15 +9,11 @@ import org.json.JSONObject;
 
 public class Weather implements JSONPopulator {
 
-    private String description;
-    private int id;
 
-    public String getDescription() {
-        return description;
-    }
+    private String icon;
 
-    public int getId() {
-        return id;
+    public String getIcon() {
+        return icon;
     }
 
     @Override
@@ -25,10 +21,7 @@ public class Weather implements JSONPopulator {
         JSONArray array = data.optJSONArray("weather");
         JSONObject object = array.optJSONObject(0);
 
-        description = object.optString("description");
-        id = object.optInt("id");
+        icon = object.optString("icon");
 
-        System.out.println(description);
-        System.out.println(id);
     }
 }

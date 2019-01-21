@@ -9,6 +9,7 @@ import org.json.JSONObject;
 public class Channel implements JSONPopulator {
     private Main main;
     private Weather weather;
+    private String location;
 
     public Main getMain() {
         return main;
@@ -18,12 +19,17 @@ public class Channel implements JSONPopulator {
         return weather;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
     @Override
     public void populate(JSONObject data) {
         main = new Main();
         main.populate(data.optJSONObject("main"));
         weather = new Weather();
         weather.populate(data);
+        location = data.optString("name");
 
     }
 }
