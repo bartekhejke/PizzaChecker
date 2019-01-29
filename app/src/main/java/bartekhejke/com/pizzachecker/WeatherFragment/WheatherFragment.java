@@ -2,6 +2,7 @@ package bartekhejke.com.pizzachecker.WeatherFragment;
 
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class WheatherFragment extends Fragment implements WeatherServiceCallback
     private int temp;
     private int resourceId;
     private String loc;
+    private ProgressDialog dialog;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationRequest locationRequest;
@@ -74,12 +76,17 @@ public class WheatherFragment extends Fragment implements WeatherServiceCallback
         location = (TextView) view.findViewById(R.id.locationTextView);
         weatherIcon = (ImageView) view.findViewById(R.id.weatherIcon);
 
+        dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("Loading...");
         service = new OpenWeatherMapService(this);
 
         if (savedInstanceState != null){
-            temperature.setText(temp+"\u00B0");
-            location.setText(loc);
-            weatherIcon.setImageResource(resourceId);
+            dialog.hide();
+            temperature.setText(savedInstanceState.getInt("temperature")+"\u00B0");
+            location.setText(savedInstanceState.getString("location"));
+            weatherIcon.setImageResource(savedInstanceState.getInt("resourceId"));
+        } else {
+            dialog.show();
         }
 
         if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -130,9 +137,11 @@ public class WheatherFragment extends Fragment implements WeatherServiceCallback
 
     @Override
     public void serviceSuccess(Channel channel) {
-        temp = channel.getMain().getTemperature()-273;
-        resourceId = getResources().getIdentifier("drawable/icon_"+ channel.getWeather().getIcon(), "drawable", getActivity().getPackageName());
-        loc = channel.getLocation();
+        dialog.hide();
+        this.temp = channel.getMain().getTemperature()-273;
+        this.resourceId = getResources().getIdentifier("drawable/icon_"+ channel.getWeather().getIcon(), "drawable", getActivity().getPackageName());
+        this.loc = channel.getLocation();
+
         temperature.setText(temp+"\u00B0");
         location.setText(loc);
         weatherIcon.setImageResource(resourceId);
@@ -140,13 +149,14 @@ public class WheatherFragment extends Fragment implements WeatherServiceCallback
 
     @Override
     public void serviceFailure(Exception exception) {
+        dialog.hide();
         Toast.makeText(getContext(),exception.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("temeprature",temp);
+        outState.putInt("temperature",temp);
         outState.putInt("resourceId", resourceId);
         outState.putString("location", loc);
 
