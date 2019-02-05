@@ -8,6 +8,10 @@
     <string name="won">Wygrałeś</string>
     <string name="lost">Przegrałeś</string>
     <string name="draw">Remis</string>
+    <string name="menu">Menu</string>
+    <string name="tictactoeButton">Czekadełko</string>
+    <string name="settingsButton">Ustawienia</string>
+    <string name="weatherButton">Pogoda</string>
 
     <string-array name="menuTitles">
         <item>Sprawdź pizze</item>

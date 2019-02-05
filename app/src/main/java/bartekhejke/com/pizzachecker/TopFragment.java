@@ -46,6 +46,7 @@ public class TopFragment extends Fragment {
         return view;
     }
 
+
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putString("pricecm",resultcm);

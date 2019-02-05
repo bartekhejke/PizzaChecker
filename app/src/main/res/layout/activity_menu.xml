@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/menuTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        android:layout_marginTop="15dp"
+        />
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/menuTextView"
+        android:columnCount="2"
+        android:rowCount="4"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:id="@+id/checkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/check_image"
+            android:background="?android:selectableItemBackground"
+            android:padding="10dp"
+            />
+        <ImageButton
+            android:id="@+id/tictactoeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/tictactoe_image"
+            android:background="?android:selectableItemBackground"
+            android:padding="10dp"
+            />
+        <TextView
+            android:id="@+id/checkTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkButton"
+            android:layout_gravity="center"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/tictactoeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tictactoeButton"
+            android:layout_gravity="center"
+            android:textSize="20dp"/>
+
+        <ImageButton
+            android:id="@+id/weatherButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/weather_image"
+            android:background="?android:selectableItemBackground"
+            android:padding="10dp"
+            />
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/settings_image"
+            android:background="?android:selectableItemBackground"
+            android:padding="10dp"
+            />
+        <TextView
+            android:id="@+id/weatherTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weatherButton"
+            android:layout_gravity="center"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/settingsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settingsButton"
+            android:layout_gravity="center"
+            android:textSize="20dp"/>
+    </GridLayout>
+</RelativeLayout>
