@@ -6,5 +6,6 @@ Used: <br />
 • Algorithm MiniMax ("artificial intelligence") used for the TicTacToe game. <br />
 • The greater part of aplication is based on fragments. <br />
 • New UI and fonts. <br />
+• Polish and English language. <br />
 ![alt text](https://github.com/bartekhejke/PizzaChecker/blob/master/menu_page.png) <br />
 <br />
