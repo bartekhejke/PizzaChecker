@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PizzaChecker</string>
     <string name="checkButton">Sprawdź</string>
@@ -15,12 +16,4 @@
     <string name="settingsText">Ustawienia</string>
     <string name="languageText">Język</string>
     <string name="languageDialog">Wybierz język...</string>
-
-
-    <string-array name="menuTitles">
-        <item>Sprawdź pizze</item>
-        <item>Poczekadełko</item>
-        <item>Pogoda</item>
-    </string-array>
-
 </resources>

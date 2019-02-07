@@ -1,6 +1,7 @@
 package bartekhejke.com.pizzachecker.TicTacToeFragment;
 
 
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -52,6 +53,19 @@ public class TicTacToeFragment extends Fragment implements View.OnClickListener,
             cell_02 = (TextView) view.findViewById(R.id.cell_02);
             cell_12 = (TextView) view.findViewById(R.id.cell_12);
             cell_22 = (TextView) view.findViewById(R.id.cell_22);
+
+            //font
+            Typeface TicTacToeFont = Typeface.createFromAsset(getActivity().getAssets(),"fonts/ComicBook.ttf");
+
+            cell_00.setTypeface(TicTacToeFont);
+            cell_10.setTypeface(TicTacToeFont);
+            cell_20.setTypeface(TicTacToeFont);
+            cell_01.setTypeface(TicTacToeFont);
+            cell_11.setTypeface(TicTacToeFont);
+            cell_21.setTypeface(TicTacToeFont);
+            cell_02.setTypeface(TicTacToeFont);
+            cell_12.setTypeface(TicTacToeFont);
+            cell_22.setTypeface(TicTacToeFont);
 
             cell_00.setOnClickListener(this);
             cell_10.setOnClickListener(this);

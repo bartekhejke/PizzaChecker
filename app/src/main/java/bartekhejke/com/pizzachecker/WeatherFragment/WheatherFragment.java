@@ -4,6 +4,7 @@ package bartekhejke.com.pizzachecker.WeatherFragment;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Looper;
@@ -76,6 +77,11 @@ public class WheatherFragment extends Fragment implements WeatherServiceCallback
         location = (TextView) view.findViewById(R.id.locationTextView);
         weatherIcon = (ImageView) view.findViewById(R.id.weatherIcon);
 
+        //font
+        Typeface MainFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/ITCKRIST.ttf");
+        temperature.setTypeface(MainFont);
+        location.setTypeface(MainFont);
+
         dialog = new ProgressDialog(getActivity());
         dialog.setMessage("Loading...");
         service = new OpenWeatherMapService(this);
@@ -142,7 +148,7 @@ public class WheatherFragment extends Fragment implements WeatherServiceCallback
         this.resourceId = getResources().getIdentifier("drawable/icon_"+ channel.getWeather().getIcon(), "drawable", getActivity().getPackageName());
         this.loc = channel.getLocation();
 
-        temperature.setText(temp+"\u00B0");
+        temperature.setText(temp+"\u00B0"+"C");
         location.setText(loc);
         weatherIcon.setImageResource(resourceId);
     }

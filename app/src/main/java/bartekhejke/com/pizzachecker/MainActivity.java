@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
             case 3:
                 fragment = new WheatherFragment();
                 break;
+            case 4:
+                fragment = new SettingsFragment();
+                break;
             default:
                 fragment = new TopFragment();
         }

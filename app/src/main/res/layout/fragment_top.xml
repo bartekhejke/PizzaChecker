@@ -2,28 +2,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bartekhejke.com.pizzachecker.TopFragment">
+    tools:context="bartekhejke.com.pizzachecker.TopFragment"
+    android:background="@color/colorPrimary">
 
     <EditText
         android:id="@+id/etSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="13"
         android:inputType="textPersonName"
         android:hint="@string/etSize"
+        android:textColorHint="@color/hintText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/whitebackground"
+        android:padding="10dp"/>
 
     <EditText
         android:id="@+id/etPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="13"
         android:inputType="textPersonName"
         android:hint="@string/etPrice"
+        android:textColorHint="@color/hintText"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/etSize"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:background="@drawable/whitebackground"
+        android:padding="10dp"/>
 
     <TextView
         android:id="@+id/tvWynikCena"
@@ -32,7 +39,8 @@
         android:text="@string/tvWynikCena"
         android:layout_below="@id/etPrice"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="25dp"
+        android:textSize="20dp"/>
 
     <Button
         android:id="@+id/btnCheck"
@@ -41,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvWynikCena"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="250dp"
+        android:background="@drawable/bottonbackground"
+        android:ems="15"/>
 
 </RelativeLayout>

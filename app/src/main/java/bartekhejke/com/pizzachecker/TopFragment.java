@@ -1,5 +1,6 @@
 package bartekhejke.com.pizzachecker;
 
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,6 +28,13 @@ public class TopFragment extends Fragment {
         etPrice = (EditText) view.findViewById(R.id.etPrice);
         etSize = (EditText) view.findViewById(R.id.etSize);
         btnCheck = (Button) view.findViewById(R.id.btnCheck);
+
+        //font
+        Typeface MainFont = Typeface.createFromAsset(getActivity().getAssets(),"fonts/ITCKRIST.ttf");
+        tvWynikCena.setTypeface(MainFont);
+        etPrice.setTypeface(MainFont);
+        etSize.setTypeface(MainFont);
+        btnCheck.setTypeface(MainFont);
 
         if( savedInstanceState != null){
             resultcm = savedInstanceState.getString("pricecm");

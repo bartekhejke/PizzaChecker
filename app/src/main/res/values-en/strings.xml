@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PizzaChecker</string>
+    <string name="checkButton">Check</string>
+    <string name="etSize">Pizza size</string>
+    <string name="etPrice">Pizza price</string>
+    <string name="tvWynikCena">Amount of pizzas for 1 [price]</string>
+    <string name="restartGame">Restart</string>
+    <string name="won">You won</string>
+    <string name="lost">You lost</string>
+    <string name="draw">Its a draw</string>
+    <string name="menu">Menu</string>
+    <string name="tictactoeButton">TicTacToe</string>
+    <string name="settingsButton">Settings</string>
+    <string name="weatherButton">Weather</string>
+    <string name="settingsText">Settings</string>
+    <string name="languageText">Language</string>
+    <string name="languageDialog">Choose language...</string>
+</resources>
